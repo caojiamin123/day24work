@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>work1demo</title>
+	</head>
+	<body>
+		<form action="" id="demoform">
+			<p>
+				<label for="user">username:</label>
+				<input type="text" id="user" name="username" value="" />
+			</p>
+			<p>
+				<label for="pass">password:</label>
+				<input type="password" id="pass" name="password" value="" />
+			</p>
+			<p>
+				<input type="submit" value="提交" id="btn"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#demoform").validate({
+				rules:{
+					username:{
+						required:true
+					},
+					password:{
+						required:true
+					}
+				},
+				messages:{
+					username:{
+						required:"此项必填"
+					},
+					password:{
+						required:"此项必填"
+					}
+				}
+			})
+		})
+	</script>
+</html>

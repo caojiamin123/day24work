@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>work21demo20</title>
+		<style type="text/css">
+			.wrong{
+				color:#c00;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" id="demoform">
+			<p>
+				<label for="user">username:</label>
+				<input type="text" id="user" name="username" value="" />
+			</p>
+			<p>
+				<label for="pass">password:</label>
+				<input type="password" id="pass" name="password" value="" />
+			</p>
+			<p>
+				<input type="submit" value="提交" id="btn"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#demoform").validate({
+				rules:{
+					username:{
+						required:true,
+						minlength:3
+					},
+					password:{
+						required:true,
+						minlength:6,
+						maxlength:16
+					}
+				},
+				messages:{
+					username:{
+						required:"此项必填",
+						minlength:"最少5位",
+						maxlength:"最大10"
+					},
+					password:{
+						required:"此项必填",
+						minlength:"最少6位",
+						maxlength:"最大16位"
+					}
+				},
+				errorClass:"wrong"
+			})
+		})
+	</script>
+</html>

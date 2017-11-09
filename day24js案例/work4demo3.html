@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>work4demo3</title>
+	</head>
+	<body>
+		<form action="" id="demoform">
+			<p>
+				<label for="user">username:</label>
+				<input type="text" id="user" name="username" value="" />
+			</p>
+			<p>
+				<label for="pass">password:</label>
+				<input type="password" id="pass" name="password" value="" />
+			</p>
+			<p>
+				<label for="age">age:</label>
+				<input type="text" id="age" name="age" value="" />
+			</p>
+			<p>
+				<input type="submit" value="提交" id="btn"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#demoform").validate({
+				rules:{
+					username:{
+						required:true,
+						rangelength:[3,10]
+					},
+					password:{
+						required:true,
+						rangelength:[6,16]
+					},
+					age:{
+						required:true,
+						digits:true,
+						range:[18,100]
+					}
+				},
+				messages:{
+					username:{
+						required:"此项必填",
+						rangelength:"用户名是3-10位字符"
+					},
+					password:{
+						required:"此项必填",
+						rangelength:"密码是6-16位字符"
+					},
+					age:{
+						required:"此项必填",
+						digits:"年龄必须为正整数",
+						range:"年龄必须是18-100岁之间"
+					}
+				}  
+			})
+		})
+	</script>
+</html>

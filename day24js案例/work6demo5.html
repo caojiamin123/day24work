@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>work6demo5</title>
+	</head>
+	<body>
+		<form action="" id="demoform">
+			<p>
+				<label for="user">username:</label>
+				<input type="text" id="user" name="username" value="" />
+			</p>
+			<p>
+				<label for="email">email:</label>
+				<input type="text" id="email" name="email" value="" />
+			</p>
+			<p>
+				<label for="pass">password:</label>
+				<input type="password" id="pass" name="password" value="" />
+			</p>
+			<p>
+				<label for="age">age:</label>
+				<input type="text" id="age" name="age" value="" />
+			</p>
+			<p>
+				<input type="submit" value="提交" id="btn"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#demoform").validate({
+				rules:{
+					username:{
+						required:true,
+						rangelength:[3,10]
+					},
+					password:{
+						required:true,
+						rangelength:[6,16]
+					},
+					age:{
+						required:true,
+						digits:true,
+						min:18,
+						max:100
+					},
+					email:{
+						required:true,
+						email:true
+					}
+				},
+				messages:{
+					username:{
+						required:"此项必填",
+						rangelength:"用户名是3-10位字符"
+					},
+					password:{
+						required:"此项必填",
+						rangelength:"密码是6-16位字符"
+					},
+					age:{
+						required:"此项必填",
+						digits:"年龄必须为正整数",
+						min:"年龄最小18岁",
+						max:"年龄最大100岁"
+					},
+					email:{
+						required:"此项必填",
+						email:"邮箱格式不正确"
+					}
+				}  
+			})
+		})
+	</script>
+</html>

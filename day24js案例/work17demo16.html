@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>work17demo16</title>
+	</head>
+	<body>
+		<form action="" id="demoform">
+			<p id="info"></p>
+			<p>
+				<label for="user">username:</label>
+				<input type="text" id="user" name="username" value="" />
+			</p>
+			<p>
+				<label for="pass">password:</label>
+				<input type="password" id="pass" name="password" value="" />
+			</p>
+			<p>
+				<input type="submit" value="提交" id="btn"/>
+			</p>
+		</form>
+	</body>
+	<script src="js/jquery-1.9.1.js" type="text/javascript" charset="utf-8"></script>
+	<script src="js/jquery.validate.min.js" type="text/javascript" charset="utf-8"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("#demoform").validate({
+				debug:true,
+				rules:{
+					username:{
+						required:true,
+						minlength:3
+					},
+					password:{
+						required:true,
+						minlength:6,
+						maxlength:16
+					}
+				},
+				messages:{
+					username:{
+						required:"此项必填",
+						minlength:"最少5位",
+						maxlength:"最大10"
+					},
+					password:{
+						required:"此项必填",
+						minlength:"最少6位",
+						maxlength:"最大16位"
+					}
+				},
+				submitHandler:function(form){
+					console.log($("#demoform").serialize());
+				},
+				invalidHandler:function(event,validator){
+					console.log("错误数量："+validator.numberOfInvalids());
+				},
+				groups:{
+					login:"user pass"
+				},
+				errorPlacement:function(error,element){
+					error.insertBefore("#info");
+				}
+			})
+		})
+	</script>
+</html>
